@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "markdownlint-cli2": "^0.21.0",
     "prettier": "^3.8.1"
   }
 }
