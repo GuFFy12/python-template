@@ -1,0 +1,20 @@
+{
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "files.eol": "\n",
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit"
+    }
+  },
+  "mypy-type-checker.importStrategy": "fromEnvironment",
+  "python.analysis.autoImportCompletions": true,
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "cSpell.language": "en,ru",
+  "editor.unicodeHighlight.allowedLocales": {
+    "ru": true
+  }
+}

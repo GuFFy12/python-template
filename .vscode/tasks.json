@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run",
+      "type": "shell",
+      "command": "uv run python main.py",
+      "problemMatcher": []
+    }
+  ]
+}

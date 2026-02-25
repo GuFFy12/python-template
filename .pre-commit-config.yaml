@@ -1,0 +1,65 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-ast
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-illegal-windows-names
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-vcs-permalinks
+      - id: check-xml
+      - id: check-yaml
+      - id: destroyed-symlinks
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: forbid-submodules
+      - id: mixed-line-ending
+        args: ["--fix", "lf"]
+      - id: trailing-whitespace
+
+  - repo: local
+    hooks:
+      - id: uv-lock
+        name: Check uv.lock file
+        entry: uv lock --check
+        language: system
+        pass_filenames: false
+        files: ^pyproject\.toml$
+
+      - id: npm-lock
+        name: Check package-lock.json file
+        entry: npm install --package-lock-only
+        language: system
+        pass_filenames: false
+        files: ^package\.json$
+
+      - id: mypy
+        name: Check with mypy
+        entry: uv run mypy .
+        types: [python]
+        language: system
+        pass_filenames: false
+
+      - id: ruff-format
+        name: Format with ruff
+        entry: uv run ruff format
+        types: [python]
+        language: system
+
+      - id: ruff
+        name: Lint with ruff
+        entry: uv run ruff check --fix --exit-zero
+        types: [python]
+        language: system
+
+      - id: prettier
+        name: Format with prettier
+        entry: npx prettier --write --ignore-unknown
+        types: [text]
+        language: system
