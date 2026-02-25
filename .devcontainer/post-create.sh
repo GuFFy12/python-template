@@ -2,7 +2,6 @@
 
 git lfs install
 git lfs pull
-npm ci
-pip install uv
+npm install
 uv sync
 uv run pre-commit install
