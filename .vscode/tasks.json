@@ -6,6 +6,12 @@
       "type": "shell",
       "command": "uv run python main.py",
       "problemMatcher": []
+    },
+    {
+      "label": "Run pre-commit for all files",
+      "type": "shell",
+      "command": "uv run pre-commit run --all-files",
+      "problemMatcher": []
     }
   ]
 }
