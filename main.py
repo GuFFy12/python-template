@@ -1,4 +1,4 @@
-def main():  # noqa: ANN201, D100, D103
+def main():
     print("Hello from python-template!")  # noqa: T201
 
 

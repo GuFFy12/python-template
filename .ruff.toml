@@ -3,7 +3,7 @@ line-length = 160
 
 [lint]
 select = ["ALL"]
-ignore = []
+ignore = ["D", "ANN"]
 
 [lint.pycodestyle]
 max-line-length = 160
