@@ -9,7 +9,7 @@
       "source.fixAll": "explicit"
     }
   },
-  "python.defaultInterpreterPath": "/app/.venv/bin/python",
+  "python.terminal.activateEnvironment": false,
   "python.analysis.typeCheckingMode": "standard",
   "python.analysis.autoImportCompletions": true,
   "git.autofetch": true,
