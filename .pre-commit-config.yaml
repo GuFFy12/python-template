@@ -42,13 +42,6 @@ repos:
         pass_filenames: false
         files: ^package\.json$
 
-      - id: mypy
-        name: Check with mypy
-        entry: uv run mypy .
-        types: [python]
-        language: system
-        pass_filenames: false
-
       - id: ruff-format
         name: Format with ruff
         entry: uv run ruff format

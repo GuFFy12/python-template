@@ -17,3 +17,4 @@
 
 5.  **Git LFS**
     Initialize Git Large File Storage (LFS) if your project requires tracking large binary files.
+    source /app/.venv/bin/activate № TODO

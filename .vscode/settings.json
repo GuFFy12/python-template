@@ -9,7 +9,8 @@
       "source.fixAll": "explicit"
     }
   },
-  "mypy-type-checker.importStrategy": "fromEnvironment",
+  "python.defaultInterpreterPath": "/app/.venv/bin/python",
+  "python.analysis.typeCheckingMode": "standard",
   "python.analysis.autoImportCompletions": true,
   "git.autofetch": true,
   "git.enableSmartCommit": true,
