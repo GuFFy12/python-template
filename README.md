@@ -8,10 +8,3 @@
 2.  **Pre-commit Hooks**
     - **`check-executables-have-shebangs`**: Uncomment this hook if you are **not** using macOS. It is currently disabled because it triggers errors within `.devcontainer` environments on macOS.
     - **`no-commit-to-branch`**: Uncomment this hook (specifically the `args: ["--branch", "main"]` line) for production-grade projects to prevent direct commits to the `main` branch.
-
-3.  **Extensions & Tooling**
-    Install additional VS Code extensions, formatters, and linters relevant to your specific tech stack (e.g., `markdownlint`, Docker, etc.).
-
-4.  **Git LFS**
-    Initialize Git Large File Storage (LFS) if your project requires tracking large binary files.
-    source /app/.venv/bin/activate № TODO
