@@ -29,18 +29,18 @@ repos:
   - repo: local
     hooks:
       - id: uv-lock
-        name: Check uv.lock file
-        entry: uv lock --check
+        name: Lock uv.lock file
+        entry: uv lock
         language: system
         pass_filenames: false
-        files: ^pyproject\.toml$
+        files: ^(pyproject\.toml|uv\.lock)$
 
       - id: npm-lock
         name: Check package-lock.json file
-        entry: npm ci --dry-run
+        entry: npm install --package-lock-only
         language: system
         pass_filenames: false
-        files: ^package\.json$
+        files: ^(package\.json|package-lock\.json)$
 
       - id: ruff-format
         name: Format with ruff
