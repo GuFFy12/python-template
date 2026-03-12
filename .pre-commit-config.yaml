@@ -37,7 +37,7 @@ repos:
 
       - id: npm-lock
         name: Check package-lock.json file
-        entry: npm install --package-lock-only
+        entry: npm ci --dry-run
         language: system
         pass_filenames: false
         files: ^package\.json$
