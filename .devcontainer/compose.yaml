@@ -3,7 +3,7 @@ services:
     build: .
     command: sleep infinity
     volumes:
-      - /workspaces:/workspaces
+      - workspaces:/workspaces
 
 volumes:
   workspaces:
