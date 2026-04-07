@@ -2,7 +2,7 @@
   "name": "python-template",
   "dockerComposeFile": ["compose.yaml"],
   "service": "app",
-  "workspaceFolder": "/workspaces/python-template",
+  "workspaceFolder": "/workspaces",
   "remoteUser": "vscode",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
