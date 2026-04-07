@@ -2,8 +2,3 @@ services:
   app:
     build: .
     command: sleep infinity
-    volumes:
-      - workspaces:/workspaces
-
-volumes:
-  workspaces:
