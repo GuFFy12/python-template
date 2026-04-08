@@ -5,6 +5,8 @@ on:
 
 jobs:
   repo-sync:
+    if: github.repository != 'GuFFy12/python-template'
+
     runs-on: ubuntu-latest
 
     permissions:
