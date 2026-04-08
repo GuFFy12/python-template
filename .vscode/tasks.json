@@ -16,7 +16,7 @@
     {
       "label": "Run post-create script",
       "type": "shell",
-      "command": "bash .devcontainer/post-create.sh",
+      "command": ".devcontainer/post-create.sh",
       "problemMatcher": []
     }
   ]
