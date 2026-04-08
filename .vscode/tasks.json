@@ -12,6 +12,12 @@
       "type": "shell",
       "command": "uv run pre-commit run --all-files",
       "problemMatcher": []
+    },
+    {
+      "label": "Run post-create script",
+      "type": "shell",
+      "command": "bash .devcontainer/post-create.sh",
+      "problemMatcher": []
     }
   ]
 }
