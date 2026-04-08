@@ -3,4 +3,4 @@ services:
     build: .
     command: sleep infinity
     volumes:
-      - ..:/workspaces/${localWorkspaceFolderBasename}:cached
+      - ..:/workspace:cached
