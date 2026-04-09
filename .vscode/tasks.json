@@ -4,19 +4,19 @@
     {
       "label": "Run",
       "type": "shell",
-      "command": "uv run python main.py",
-      "problemMatcher": []
-    },
-    {
-      "label": "Run pre-commit for all files",
-      "type": "shell",
-      "command": "uv run pre-commit run --all-files",
+      "command": "uv run python src/app/main.py",
       "problemMatcher": []
     },
     {
       "label": "Run post-create script",
       "type": "shell",
       "command": ".devcontainer/post-create.sh",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run pre-commit for all files",
+      "type": "shell",
+      "command": "uv run pre-commit run --all-files",
       "problemMatcher": []
     }
   ]

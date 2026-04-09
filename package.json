@@ -2,5 +2,8 @@
   "name": "app",
   "devDependencies": {
     "prettier": "3.8.1"
+  },
+  "prettier": {
+    "printWidth": 160
   }
 }

@@ -22,6 +22,7 @@ repos:
       - id: mixed-line-ending
         args: ["--fix", "lf"]
       - id: name-tests-test
+        args: ["--pytest-test-first"]
       # - id: no-commit-to-branch
       #   args: ["--branch", "main"]
       - id: trailing-whitespace
@@ -51,6 +52,12 @@ repos:
       - id: ruff
         name: Lint with ruff
         entry: uv run ruff check --fix
+        types: [python]
+        language: system
+
+      - id: pyright
+        name: Type check with pyright
+        entry: uv run pyright
         types: [python]
         language: system
 

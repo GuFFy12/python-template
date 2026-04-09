@@ -1,9 +1,0 @@
-target-version = "py313"
-line-length = 160
-
-[lint]
-select = ["ALL"]
-ignore = ["D", "ANN"]
-
-[lint.pycodestyle]
-max-line-length = 160

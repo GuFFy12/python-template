@@ -5,7 +5,7 @@
       "name": "Python Debugger: Main File",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/main.py"
+      "program": "src/app/main.py"
     }
   ]
 }
