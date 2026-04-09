@@ -1,7 +1,7 @@
 {
   "name": "python-template",
   "dockerComposeFile": ["compose.yaml"],
-  "service": "app",
+  "service": "workspace",
   "workspaceFolder": "/workspace",
   "remoteUser": "vscode",
   "features": {

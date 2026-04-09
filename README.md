@@ -26,3 +26,9 @@ _Best for bypassing high cross-filesystem overhead by keeping code inside a Linu
 2.  **Pre-commit Hooks**
     - **`check-executables-have-shebangs`**: Uncomment this hook if you are **not** using macOS. It is currently disabled because it triggers errors within `.devcontainer` environments on macOS.
     - **`no-commit-to-branch`**: Uncomment this hook (specifically the `args: ["--branch", "main"]` line) for production-grade projects to prevent direct commits to the `main` branch.
+
+## TODO
+
+1. Agent and skills for copilot.
+2. Return mypy but only for ci.
+3. Add github actions for ci.
