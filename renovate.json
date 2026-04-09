@@ -6,7 +6,7 @@
   },
   "packageRules": [
     {
-      "description": "Disable digest pinning for DevContainers",
+      "description": "Disable digest pinning for DevContainer",
       "matchFileNames": [".devcontainer/**"],
       "pinDigests": false
     }

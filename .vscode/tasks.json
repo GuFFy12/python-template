@@ -18,6 +18,12 @@
       "type": "shell",
       "command": "uv run pre-commit run --all-files",
       "problemMatcher": []
+    },
+    {
+      "label": "Run mypy for all files",
+      "type": "shell",
+      "command": "uv run mypy .",
+      "problemMatcher": []
     }
   ]
 }
