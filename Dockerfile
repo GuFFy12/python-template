@@ -9,4 +9,4 @@ FROM python:3.13.12-slim
 WORKDIR /app
 ENV PATH="/app/.venv/bin:$PATH"
 COPY --from=builder /app .
-ENTRYPOINT ["python", "src/app/main.py"]
+ENTRYPOINT ["python", "src/python_template/main.py"]

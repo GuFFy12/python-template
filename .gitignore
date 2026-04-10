@@ -1,6 +1,6 @@
 # Custom
 .history/
-.copilot-tracking
+.copilot-tracking/
 
 
 # Linux
@@ -455,3 +455,7 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+
+# Custom
+!.devcontainer/.env

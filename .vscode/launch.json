@@ -5,7 +5,7 @@
       "name": "Python Debugger: Main File",
       "type": "debugpy",
       "request": "launch",
-      "program": "src/app/main.py"
+      "program": "src/python_template/main.py"
     }
   ]
 }

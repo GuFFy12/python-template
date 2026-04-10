@@ -1,10 +1,10 @@
 import logging
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-logger: logging.Logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
-def main() -> None:
+def main():
     logger.info("Hello World!")
 
 

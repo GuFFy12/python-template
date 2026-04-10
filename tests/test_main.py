@@ -1,12 +1,12 @@
 import logging
 
-from app.main import main
+from python_template.main import main
 
 
 class TestMain:
     """Tests for main function."""
 
-    def test_main_logs_hello_world(self, caplog) -> None:
+    def test_main_logs_hello_world(self, caplog):
         """Test that main logs the expected hello world message."""
         with caplog.at_level(logging.INFO):
             main()
