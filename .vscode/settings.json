@@ -6,8 +6,7 @@
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.codeActionsOnSave": {
-      "source.fixAll": "explicit",
-      "source.addTypeAnnotation": "always"
+      "source.fixAll": "explicit"
     }
   },
   "python.terminal.activateEnvironment": false,
