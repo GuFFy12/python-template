@@ -1,4 +1,4 @@
-FROM python:3.13
+FROM python:3.14
 
 COPY --from=astral/uv:0.11 /uv /uvx /usr/local/bin
 COPY --from=node:24-slim /usr/local/bin /usr/local/bin
