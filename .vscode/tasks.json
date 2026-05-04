@@ -20,21 +20,16 @@
       "problemMatcher": []
     },
     {
-      "label": "Run pyright for all files",
-      "type": "shell",
-      "command": "uv run pyright",
-      "problemMatcher": []
-    },
-    {
       "label": "Run mypy for all files",
       "type": "shell",
       "command": "uv run mypy .",
-      "problemMatcher": []
+      "problemMatcher": ["$mypy"]
     },
     {
       "label": "Secrets: Update & Audit",
       "type": "shell",
       "command": "uv run detect-secrets scan --baseline .secrets.baseline && uv run detect-secrets audit .secrets.baseline",
+      "presentation": { "focus": true },
       "problemMatcher": []
     }
   ]
