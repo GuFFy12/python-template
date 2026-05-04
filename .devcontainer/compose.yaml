@@ -2,5 +2,6 @@ services:
   workspace:
     build: .
     command: sleep infinity
+    env_file: .env
     volumes:
       - ..:/workspace:cached

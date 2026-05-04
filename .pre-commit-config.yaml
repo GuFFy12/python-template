@@ -43,6 +43,13 @@ repos:
         pass_filenames: false
         files: ^(package\.json|package-lock\.json)$
 
+      - id: detect-secrets
+        name: Detect secrets
+        entry: uv run detect-secrets-hook --baseline .secrets.baseline
+        language: system
+        types: [text]
+        exclude: .*(package-lock\.json|uv\.lock)$
+
       - id: ruff-format
         name: Format with ruff
         entry: uv run ruff format

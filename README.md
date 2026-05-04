@@ -17,16 +17,3 @@ _Best for bypassing high cross-filesystem overhead by keeping code inside a Linu
 - **Windows (Strictly Required)**: To ensure peak disk performance, **do not** mount the host Windows file system. Instead, exclusively use the VS Code command **`Dev Containers: Clone Repository in Container Volume`**. This keeps the source code entirely within the isolated Linux filesystem, preventing the severe performance degradation caused by Windows-to-Linux file sharing.
 
 - **macOS (OrbStack Strictly Required)**: If you prefer the isolated volume approach on a Mac, you **must** use OrbStack. Using Docker Desktop with the "Clone in Volume" command combined with Docker Compose triggers `mounts denied` error, as Docker Desktop cannot resolve local build contexts inside isolated volumes. OrbStack natively handles this filesystem routing, allowing the clone process to work flawlessly.
-
-## Customization
-
-1.  **Ruff**
-    If you encounter specific warnings that do not fit your workflow, simply add their error codes to the `ignore` list in the configuration file.
-
-2.  **Pre-commit Hooks**
-    - **`check-executables-have-shebangs`**: Uncomment this hook if you are **not** using macOS. It is currently disabled because it triggers errors within `.devcontainer` environments on macOS.
-    - **`no-commit-to-branch`**: Uncomment this hook (specifically the `args: ["--branch", "main"]` line) for production-grade projects to prevent direct commits to the `main` branch.
-
-## TODO
-
-1. GitHub Actions
