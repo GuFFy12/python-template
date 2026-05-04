@@ -3,12 +3,5 @@
   "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
     "enabled": true
-  },
-  "packageRules": [
-    {
-      "description": "Disable digest pinning for DevContainer",
-      "matchFileNames": [".devcontainer/**"],
-      "pinDigests": false
-    }
-  ]
+  }
 }
