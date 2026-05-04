@@ -1,6 +1,6 @@
 #!/bin/bash
 
 git lfs pull
-npm install
-uv sync
+npm ci
+uv sync --frozen
 uv run pre-commit install --install-hooks
