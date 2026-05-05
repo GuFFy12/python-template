@@ -1,0 +1,78 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c # v6.0.0 # pragma: allowlist secret
+    hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-illegal-windows-names
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-vcs-permalinks
+      - id: check-xml
+      - id: check-yaml
+      - id: destroyed-symlinks
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: forbid-submodules
+      - id: mixed-line-ending
+        args: ["--fix", "lf"]
+      - id: name-tests-test
+        args: ["--pytest-test-first"]
+      # - id: no-commit-to-branch
+      #   args: ["--branch", "main"]
+      - id: trailing-whitespace
+
+  - repo: local
+    hooks:
+      - id: uv-lock
+        name: Lock uv.lock file
+        entry: uv lock
+        language: system
+        pass_filenames: false
+        files: ^(pyproject\.toml|uv\.lock)$
+
+      - id: npm-lock
+        name: Check package-lock.json file
+        entry: npm install --package-lock-only
+        language: system
+        pass_filenames: false
+        files: ^(package\.json|package-lock\.json)$
+
+      - id: detect-secrets
+        name: Detect secrets
+        entry: uv run detect-secrets-hook --baseline .secrets.baseline
+        language: system
+        types: [text]
+        exclude: .*(package-lock\.json|uv\.lock)$
+
+      - id: ruff-format
+        name: Format with ruff
+        entry: uv run ruff format
+        types: [python]
+        language: system
+
+      - id: ruff
+        name: Lint with ruff
+        entry: uv run ruff check --fix --exit-zero
+        types: [python]
+        language: system
+
+      # Allow subjective or noisy linting errors to be visible in IDE but ignore them in pre-commit
+      - id: ruff-ignore
+        name: Lint with ruff
+        entry: uv run ruff check --fix
+        args:
+          - --extend-ignore=PLR2004 # magic-value-comparison
+        types: [python]
+        language: system
+
+      - id: prettier
+        name: Format with prettier
+        entry: npx prettier --write --ignore-unknown
+        types: [text]
+        language: system

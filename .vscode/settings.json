@@ -1,0 +1,23 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "files.eol": "\n",
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit"
+    }
+  },
+  "python.terminal.activateEnvironment": false,
+  "python.analysis.autoImportCompletions": true,
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "cSpell.language": "en,ru",
+  "editor.unicodeHighlight.allowedLocales": {
+    "ru": true
+  },
+  "python.testing.pytestEnabled": true,
+  "python.analysis.diagnosticMode": "workspace"
+}

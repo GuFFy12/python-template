@@ -1,0 +1,11 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python Debugger: Main File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "src/python_template/main.py"
+    }
+  ]
+}

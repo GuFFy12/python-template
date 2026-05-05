@@ -1,0 +1,61 @@
+[project]
+name = "python-template"
+version = "0.1.0"
+description = "Python Template"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "detect-secrets>=1.5.0",
+    "mypy>=1.20.0",
+    "pre-commit>=4.5.1",
+    "pyright>=1.1.408",
+    "pytest>=9.0.3",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.15.2",
+]
+
+
+[tool.ruff]
+target-version = "py313"
+line-length = 160
+
+[tool.ruff.lint]
+select = [
+    "ALL"
+]
+ignore = [
+    "D",       # pydocstyle
+    "ANN",     # flake8-annotations
+    "ERA",     # eradicate
+    "ARG",     # flake8-unused-arguments
+    "TD",      # flake8-todos
+    "FIX",     # flake8-fixme
+    "RUF001",  # ambiguous-unicode-character-string
+    "RUF002",  # ambiguous-unicode-character-docstring
+    "RUF003",  # ambiguous-unicode-character-comment
+]
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 160
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = [
+    "S101",    # assert
+]
+
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+
+[tool.pyright]
+typeCheckingMode = "standard"
+
+
+[tool.mypy]
+check_untyped_defs = true
+warn_return_any = true
+disallow_any_generics = true
