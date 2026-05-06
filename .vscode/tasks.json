@@ -23,7 +23,7 @@
       "label": "Run mypy for all files",
       "type": "shell",
       "command": "uv run mypy .",
-      "problemMatcher": ["$mypy"]
+      "problemMatcher": []
     },
     {
       "label": "Secrets: Update & Audit",

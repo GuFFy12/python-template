@@ -19,5 +19,6 @@
     "ru": true
   },
   "python.testing.pytestEnabled": true,
-  "python.analysis.diagnosticMode": "workspace"
+  "python.analysis.diagnosticMode": "workspace",
+  "mypy-type-checker.importStrategy": "fromEnvironment"
 }
