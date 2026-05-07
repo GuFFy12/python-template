@@ -1,4 +1,4 @@
-name: CI
+name: Test
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  ci:
+  test:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository
