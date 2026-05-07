@@ -18,7 +18,8 @@
         "streetsidesoftware.code-spell-checker-russian",
         "charliermarsh.ruff",
         "esbenp.prettier-vscode",
-        "xyz.local-history"
+        "xyz.local-history",
+        "vivaxy.vscode-conventional-commits"
       ]
     }
   }

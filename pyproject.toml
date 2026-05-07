@@ -45,9 +45,6 @@ select = [
 ]
 ignore = [
     "D",       # pydocstyle
-    "ANN",     # flake8-annotations
-    "ERA",     # eradicate
-    "ARG",     # flake8-unused-arguments
     "TD",      # flake8-todos
     "FIX",     # flake8-fixme
     "RUF001",  # ambiguous-unicode-character-string
@@ -60,6 +57,7 @@ max-line-length = 160
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = [
+    "INP001",  # implicit-namespace-package
     "S101",    # assert
 ]
 
