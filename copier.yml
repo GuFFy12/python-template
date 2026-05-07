@@ -1,5 +1,3 @@
-_templates_suffix: ""
-
 remote_url:
   type: str
   help: "Enter URL of the Git repository (blank for none):"
