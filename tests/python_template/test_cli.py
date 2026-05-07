@@ -1,9 +1,11 @@
 import logging
 
+import pytest
+
 from python_template.cli import main
 
 
-def test_cli_main(caplog):
+def test_cli_main(caplog: pytest.LogCaptureFixture) -> None:
     """Test the CLI entry point."""
     with caplog.at_level(logging.INFO):
         exit_code = main(["test-data"])

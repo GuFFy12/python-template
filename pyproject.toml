@@ -69,10 +69,8 @@ pythonpath = ["src"]
 
 
 [tool.pyright]
-typeCheckingMode = "standard"
+typeCheckingMode = "strict"
 
 
 [tool.mypy]
-check_untyped_defs = true
-warn_return_any = true
-disallow_any_generics = true
+strict = true

@@ -1,9 +1,11 @@
 import logging
 
+import pytest
+
 from python_template.core import process_data
 
 
-def test_process_data(caplog):
+def test_process_data(caplog: pytest.LogCaptureFixture) -> None:
     """Test the core logic processing."""
     with caplog.at_level(logging.INFO):
         result = process_data("hello")

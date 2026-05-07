@@ -59,8 +59,8 @@ repos:
       - id: ruff
         name: Lint with ruff
         entry: uv run ruff check --fix --exit-zero
-        types: [python]
         language: system
+        types: [python]
 
       # Allow subjective or noisy linting errors to be visible in IDE but ignore them in pre-commit
       - id: ruff-ignore
@@ -68,11 +68,18 @@ repos:
         entry: uv run ruff check --fix
         args:
           - --extend-ignore=PLR2004 # magic-value-comparison
-        types: [python]
         language: system
+        types: [python]
 
       - id: prettier
         name: Format with prettier
         entry: npx prettier --write --ignore-unknown
-        types: [text]
         language: system
+        types: [text]
+
+      - id: mypy
+        name: Type check with mypy
+        entry: uv run mypy .
+        language: system
+        pass_filenames: false
+        files: ^(pyproject\.toml|(src|tests)/.*\.pyi?)$
