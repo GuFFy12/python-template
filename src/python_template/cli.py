@@ -8,6 +8,7 @@ logger = logging.getLogger(__name__)
 
 
 def main(argv: list[str] | None = None) -> int:
+    """CLI entry point for the Python Template project."""
     logging.basicConfig(
         level=logging.INFO,
         stream=sys.stdout,
