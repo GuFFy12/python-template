@@ -35,7 +35,7 @@
     {
       "label": "Update from template",
       "type": "shell",
-      "command": "copier update",
+      "command": "copier update --trust",
       "presentation": { "focus": true },
       "problemMatcher": []
     }
