@@ -1,13 +1,15 @@
-name: CI
+name: Test
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
-  ci:
+  test:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository

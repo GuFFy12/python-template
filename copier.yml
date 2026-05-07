@@ -1,0 +1,22 @@
+remote_url:
+  type: str
+  help: "Enter URL of the Git repository (blank for none):"
+  default: ""
+
+branch_name:
+  type: str
+  help: "Enter name of the main branch:"
+  default: "main"
+
+_tasks:
+  - command: >-
+      git init &&
+      git add . &&
+      git commit -m "Initial commit from Copier" &&
+      git branch -M "{{ branch_name }}"
+    when: "{{ _copier_operation == 'copy' }}"
+
+  - command: >-
+      git remote add origin "{{ remote_url }}" &&
+      git push -u origin "{{ branch_name }}"
+    when: "{{ _copier_operation == 'copy' and remote_url != '' }}"
