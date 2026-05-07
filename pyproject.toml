@@ -1,6 +1,6 @@
 [project]
 name = "python-template"
-version = "0.1.0"
+dynamic = ["version"]
 description = "Python Template"
 readme = "README.md"
 requires-python = ">=3.13"
@@ -10,8 +10,17 @@ dependencies = []
 python-template = "python_template.cli:main"
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/python_template/_version.py"
+
+[tool.hatch.version.raw-options]
+local_scheme = "no-local-version"
 
 [dependency-groups]
 dev = [
