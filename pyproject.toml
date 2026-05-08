@@ -20,6 +20,7 @@ dev = [
   "detect-secrets>=1.5.0",
   "dprint-py>=0.53.1.0",
   "mypy>=1.20.0",
+  "pre-commit>=4.6.0",
   "pyright>=1.1.408",
   "pytest>=9.0.3",
   "pytest-cov>=7.1.0",
@@ -51,6 +52,7 @@ ignore = [
   "D", # pydocstyle
   "TD", # flake8-todos
   "FIX", # flake8-fixme
+  "COM812", # missing-trailing-comma
   "RUF001", # ambiguous-unicode-character-string
   "RUF002", # ambiguous-unicode-character-docstring
   "RUF003", # ambiguous-unicode-character-comment

@@ -2,4 +2,5 @@
 
 git lfs pull
 uv sync --frozen
+uv run pre-commit install-hooks
 uv run lefthook install
