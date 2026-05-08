@@ -30,7 +30,7 @@ jobs:
         run: uv sync --frozen
 
       - name: Run pre-commit
-        run: uv run pre-commit run --all-files
+        run: uv run lefthook run pre-commit --all-files
 
       - name: Run pytest
         run: uv run pytest
