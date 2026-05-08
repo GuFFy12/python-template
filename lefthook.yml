@@ -29,7 +29,7 @@ pre-commit:
       stage_fixed: true
 
     dprint:
-      run: dprint fmt {staged_files}
+      run: uv run dprint fmt {staged_files}
       stage_fixed: true
 
     mypy:
