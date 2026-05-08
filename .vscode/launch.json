@@ -2,10 +2,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python Debugger: Main File",
+      "name": "Python Debugger: Module",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/.venv/bin/python-template"
+      "module": "python_template.cli",
+      "args": [],
+      "justMyCode": true
     }
   ]
 }
