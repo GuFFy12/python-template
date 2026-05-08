@@ -1,5 +1,5 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "dprint.dprint",
   "editor.formatOnSave": true,
   "files.autoSave": "onFocusChange",
   "files.eol": "\n",
@@ -19,5 +19,6 @@
     "ru": true
   },
   "python.testing.pytestEnabled": true,
-  "python.analysis.diagnosticMode": "workspace"
+  "python.analysis.diagnosticMode": "workspace",
+  "dprint.path": "${workspaceFolder}/.venv/bin/dprint"
 }

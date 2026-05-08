@@ -4,10 +4,27 @@ dynamic = ["version"]
 description = "Python Template"
 readme = "README.md"
 requires-python = ">=3.13"
+license = "MIT"
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+]
 dependencies = []
 
 [project.scripts]
 python-template = "python_template.cli:main"
+
+[dependency-groups]
+dev = [
+  "copier>=9.15.0",
+  "detect-secrets>=1.5.0",
+  "dprint-py>=0.53.1.0",
+  "mypy>=1.20.0",
+  "pyright>=1.1.408",
+  "pytest>=9.0.3",
+  "pytest-cov>=7.1.0",
+  "ruff>=0.15.2",
+]
 
 [build-system]
 requires = ["hatchling", "hatch-vcs"]
@@ -22,34 +39,21 @@ version-file = "src/python_template/_version.py"
 [tool.hatch.version.raw-options]
 local_scheme = "no-local-version"
 
-[dependency-groups]
-dev = [
-    "copier>=9.15.0",
-    "detect-secrets>=1.5.0",
-    "mypy>=1.20.0",
-    "pre-commit>=4.5.1",
-    "pyright>=1.1.408",
-    "pytest>=9.0.3",
-    "pytest-cov>=7.1.0",
-    "ruff>=0.15.2",
-]
-
-
 [tool.ruff]
 target-version = "py313"
 line-length = 160
 
 [tool.ruff.lint]
 select = [
-    "ALL"
+  "ALL",
 ]
 ignore = [
-    "D",       # pydocstyle
-    "TD",      # flake8-todos
-    "FIX",     # flake8-fixme
-    "RUF001",  # ambiguous-unicode-character-string
-    "RUF002",  # ambiguous-unicode-character-docstring
-    "RUF003",  # ambiguous-unicode-character-comment
+  "D", # pydocstyle
+  "TD", # flake8-todos
+  "FIX", # flake8-fixme
+  "RUF001", # ambiguous-unicode-character-string
+  "RUF002", # ambiguous-unicode-character-docstring
+  "RUF003", # ambiguous-unicode-character-comment
 ]
 
 [tool.ruff.lint.pycodestyle]
@@ -57,18 +61,18 @@ max-line-length = 160
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = [
-    "INP001",  # implicit-namespace-package
-    "S101",    # assert
+  "INP001", # implicit-namespace-package
+  "S101", # assert
 ]
-
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 
-
 [tool.pyright]
 typeCheckingMode = "strict"
 
-
 [tool.mypy]
 strict = true
+# check_untyped_defs = true
+# warn_return_any = true
+# disallow_any_generics = true

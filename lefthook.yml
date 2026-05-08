@@ -1,0 +1,37 @@
+pre-commit:
+  parallel: true
+  commands:
+    check-added-large-files:
+      run: |
+        for f in {staged_files}; do
+          if [ -f "$f" ] && [ $(wc -c < "$f") -gt 512000 ]; then
+            echo "File $f is too large (>500KB)"
+            exit 1
+          fi
+        done
+
+    uv-lock:
+      glob: "{pyproject.toml,uv.lock}"
+      run: uv lock
+      stage_fixed: true
+
+    detect-secrets:
+      exclude:
+        - uv.lock
+      run: uv run detect-secrets-hook --baseline .secrets.baseline {staged_files}
+
+    ruff:
+      glob: "*.py"
+      run: >
+        uv run ruff check --fix --exit-zero {staged_files} &&
+        uv run ruff check --fix --extend-ignore=PLR2004 {staged_files} &&
+        uv run ruff format {staged_files}
+      stage_fixed: true
+
+    dprint:
+      run: dprint fmt {staged_files}
+      stage_fixed: true
+
+    mypy:
+      glob: "{pyproject.toml,src/**/*.py,src/**/*.pyi,tests/**/*.py,tests/**/*.pyi}"
+      run: uv run mypy .

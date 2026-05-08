@@ -14,12 +14,10 @@
     "vscode": {
       "extensions": [
         "ms-python.python",
-        "streetsidesoftware.code-spell-checker",
-        "streetsidesoftware.code-spell-checker-russian",
         "charliermarsh.ruff",
-        "esbenp.prettier-vscode",
-        "xyz.local-history",
-        "vivaxy.vscode-conventional-commits"
+        "dprint.dprint",
+        "streetsidesoftware.code-spell-checker",
+        "streetsidesoftware.code-spell-checker-russian"
       ]
     }
   }
