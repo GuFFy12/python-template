@@ -20,5 +20,5 @@
   },
   "python.testing.pytestEnabled": true,
   "python.analysis.diagnosticMode": "workspace",
-  "dprint.path": "${workspaceFolder}/.venv/bin/dprint"
+  "dprint.path": ".venv/bin/dprint"
 }

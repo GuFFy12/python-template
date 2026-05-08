@@ -13,7 +13,6 @@ pre-commit:
     uv-lock:
       glob: "{pyproject.toml,uv.lock}"
       run: uv lock
-      stage_fixed: true
 
     detect-secrets:
       exclude:
@@ -26,11 +25,9 @@ pre-commit:
         uv run ruff check --fix --exit-zero {staged_files} &&
         uv run ruff check --fix --extend-ignore=PLR2004 {staged_files} &&
         uv run ruff format {staged_files}
-      stage_fixed: true
 
     dprint:
       run: uv run dprint fmt {staged_files}
-      stage_fixed: true
 
     mypy:
       glob: "{pyproject.toml,src/**/*.py,src/**/*.pyi,tests/**/*.py,tests/**/*.pyi}"
