@@ -2,9 +2,14 @@ name: Build Docker
 
 on:
   push:
+    # branches:
+    #   - main
+    # pull_request:
+    #   branches:
+    #     - main
     tags:
-      - "v[0-9]+.[0-9]+.[0-9]+"
-      - "v[0-9]+.[0-9]+.[0-9]+-*"
+      - "v*.*.*"
+      - "v*.*.*-*"
 
 jobs:
   build:
@@ -12,6 +17,8 @@ jobs:
     permissions:
       packages: write
       contents: read
+      id-token: write
+      attestations: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
@@ -28,11 +35,15 @@ jobs:
         uses: docker/metadata-action@030e881283bb7a6894de51c315a6bfe6a94e05cf # v6
         with:
           images: ghcr.io/${{ github.repository }}
+          flavor: |
+            latest=false
           tags: |
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
-            type=sha,format=short
+            type=semver,pattern={{version}},priority=930
+            type=semver,pattern={{major}}.{{minor}},priority=920
+            type=semver,pattern={{major}},enable=${{ !startsWith(github.ref, 'refs/tags/v0.') }},priority=910
+            type=ref,event=branch,priority=610
+            type=ref,event=pr,priority=600
+            type=sha,format=short,priority=100
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v4
@@ -47,5 +58,10 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          provenance: true
+          sbom: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
+        env:
+          DOCKER_BUILD_CHECKS_ANNOTATIONS: true
+          DOCKER_BUILD_SUMMARY: true
