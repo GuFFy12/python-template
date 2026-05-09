@@ -6,8 +6,9 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \
     uv sync --no-dev --frozen --compile-bytecode --no-install-project
 COPY . .
+ARG VERSION=0.1.0
 RUN --mount=type=cache,target=/root/.cache/uv \
-    SETUPTOOLS_SCM_PRETEND_VERSION=0.1.0 uv sync --no-dev --frozen --compile-bytecode
+    SETUPTOOLS_SCM_PRETEND_VERSION=${VERSION} uv sync --no-dev --frozen --compile-bytecode
 
 FROM python:3.13.12-slim-bookworm@sha256:f1927c75e81efd1e091dbd64b6c0ecaa5630b38635a3d1c04034ac636e1f94c8
 RUN addgroup --system appuser && adduser --system --group appuser

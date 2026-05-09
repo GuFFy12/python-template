@@ -58,10 +58,9 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          provenance: true
+          build-args: |
+            VERSION=${{ steps.meta.outputs.version }}
+          provenance: mode=max
           sbom: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
-        env:
-          DOCKER_BUILD_CHECKS_ANNOTATIONS: true
-          DOCKER_BUILD_SUMMARY: true
