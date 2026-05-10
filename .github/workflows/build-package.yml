@@ -13,6 +13,7 @@ jobs:
       contents: read
       id-token: write
       attestations: write
+      artifact-metadata: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
@@ -28,7 +29,7 @@ jobs:
         with:
           path: .
           format: spdx-json
-          output-file: sbom.spdx.json
+          output-file: dist/sbom.spdx.json
 
       - name: Attest Build Provenance
         uses: actions/attest@v4
@@ -39,7 +40,7 @@ jobs:
         uses: actions/attest@v4
         with:
           subject-path: dist/*
-          sbom-path: sbom.spdx.json
+          sbom-path: dist/sbom.spdx.json
 
       - name: Upload package artifacts
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
@@ -47,7 +48,6 @@ jobs:
           name: python-package-distributions
           path: |
             dist/
-            sbom.spdx.json
 
   publish:
     name: Publish to GitHub
