@@ -22,14 +22,14 @@ jobs:
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
 
       - name: Build package
-        run: uv build
+        run: uv build --no-create-gitignore
 
       - name: Generate SBOM
         uses: anchore/sbom-action@v0
         with:
-          path: .
+          path: dist/
           format: spdx-json
-          output-file: dist/sbom.spdx.json
+          output-file: sbom.spdx.json
 
       - name: Attest Build Provenance
         uses: actions/attest@v4
@@ -40,14 +40,13 @@ jobs:
         uses: actions/attest@v4
         with:
           subject-path: dist/*
-          sbom-path: dist/sbom.spdx.json
+          sbom-path: sbom.spdx.json
 
       - name: Upload package artifacts
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: python-package-distributions
-          path: |
-            dist/
+          path: dist/
 
   publish:
     name: Publish to GitHub
@@ -64,11 +63,6 @@ jobs:
         with:
           name: python-package-distributions
           path: dist/
-
-      - name: Attest Release Provenance
-        uses: actions/attest@v4
-        with:
-          subject-path: dist/*
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v3
