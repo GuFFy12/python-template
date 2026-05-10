@@ -13,13 +13,13 @@ on:
 
 jobs:
   build:
+    name: Build and Push Docker Image
     runs-on: ubuntu-24.04
     permissions:
       packages: write
       contents: read
-      id-token: write
-      attestations: write
-      artifact-metadata: write
+    outputs:
+      image-digest: ${{ steps.push.outputs.digest }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
@@ -67,9 +67,32 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+  attest:
+    name: Attest Docker Image
+    runs-on: ubuntu-24.04
+    permissions:
+      packages: write
+      id-token: write
+      attestations: write
+      artifact-metadata: write
+    needs: build
+    steps:
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@4907a6ddec9925e35a0a9e82d7399ccc52663121 # v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Scan image and upload to Dependency Graph
+        uses: anchore/sbom-action@v0
+        with:
+          image: ghcr.io/${{ github.repository }}@${{ needs.build.outputs.image-digest }}
+          dependency-snapshot: true
+
       - name: Attest
         uses: actions/attest@v4
         with:
           subject-name: ghcr.io/${{ github.repository }}
-          subject-digest: ${{ steps.push.outputs.digest }}
+          subject-digest: ${{ needs.build.outputs.image-digest }}
           push-to-registry: true

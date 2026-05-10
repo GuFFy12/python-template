@@ -689,9 +689,6 @@ wheels = [
 [[package]]
 name = "python-template"
 source = { editable = "." }
-dependencies = [
-    { name = "requests" },
-]
 
 [package.dev-dependencies]
 dev = [
@@ -708,7 +705,6 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "requests", specifier = ">=2.33.1" }]
 
 [package.metadata.requires-dev]
 dev = [
