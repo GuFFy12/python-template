@@ -24,10 +24,13 @@ jobs:
       - name: Build package
         run: uv build --no-create-gitignore
 
+      - name: Export production dependencies
+        run: uv export --no-dev -o requirements.txt
+
       - name: Generate SBOM
         uses: anchore/sbom-action@v0
         with:
-          path: dist/
+          file: requirements.txt
           dependency-snapshot: true
           output-file: sbom.spdx.json
 
