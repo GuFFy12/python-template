@@ -9,7 +9,9 @@ classifiers = [
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
 ]
-dependencies = []
+dependencies = [
+  "requests>=2.33.1",
+]
 
 [project.scripts]
 python-template = "python_template.cli:main"

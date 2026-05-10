@@ -28,7 +28,7 @@ jobs:
         uses: anchore/sbom-action@v0
         with:
           path: dist/
-          format: spdx-json
+          dependency-snapshot: true
           output-file: sbom.spdx.json
 
       - name: Attest Build Provenance
