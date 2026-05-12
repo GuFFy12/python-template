@@ -22,53 +22,15 @@ jobs:
       - name: Build package
         run: uv build --no-create-gitignore
 
-      - name: Export production dependencies
-        run: uv export --no-dev -o requirements.txt
-
       - name: Upload package artifacts
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: python-package-distributions
-          path: |
-            dist/
-            requirements.txt
-
-  attest:
-    name: Attest Package
-    runs-on: ubuntu-24.04
-    needs: build
-    permissions:
-      contents: write
-      id-token: write
-      attestations: write
-      artifact-metadata: write
-    steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
-        with:
-          name: python-package-distributions
-
-      - name: Generate SBOM
-        uses: anchore/sbom-action@v0
-        with:
-          file: requirements.txt
-          dependency-snapshot: true
-          output-file: sbom.spdx.json
-
-      - name: Attest Build Provenance
-        uses: actions/attest@v4
-        with:
-          subject-path: dist/*
-
-      - name: Attest SBOM
-        uses: actions/attest@v4
-        with:
-          subject-path: dist/*
-          sbom-path: sbom.spdx.json
+          path: dist/
 
   publish:
     name: Publish to GitHub
-    needs: attest
+    needs: build
     runs-on: ubuntu-24.04
     permissions:
       contents: write
@@ -81,7 +43,6 @@ jobs:
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
         with:
           name: python-package-distributions
-          path: dist/
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v3
@@ -94,7 +55,7 @@ jobs:
   publish-pypi:
     if: false
     name: Publish to PyPI
-    needs: attest
+    needs: build
     runs-on: ubuntu-24.04
     environment:
       name: pypi
@@ -106,7 +67,6 @@ jobs:
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
         with:
           name: python-package-distributions
-          path: dist/
 
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1

@@ -33,7 +33,33 @@ jobs:
         run: uv sync --frozen --no-install-project
 
       - name: Run pre-commit
-        run: uv run lefthook run pre-commit --all-files
+        if: success() || failure()
+        run: |
+          uv run pre-commit run --all-files
+          git diff --exit-code
+
+      - name: Run detect-secrets
+        if: success() || failure()
+        run: git ls-files | xargs uv run detect-secrets-hook --baseline .secrets.baseline
+
+      - name: Run Ruff format & lint
+        if: success() || failure()
+        run: |
+          uv run ruff check --fix --exit-zero .
+          uv run ruff check --fix --extend-ignore=PLR2004 .
+          uv run ruff format .
+          git diff --exit-code
+
+      - name: Run dprint
+        if: success() || failure()
+        run: |
+          git ls-files | grep -v '{{_copier_conf.answers_file}}.jinja' | xargs uv run dprint fmt
+          git diff --exit-code
+
+      - name: Run mypy
+        if: success() || failure()
+        run: uv run mypy .
 
       - name: Run pytest
+        if: success() || failure()
         run: uv run pytest
