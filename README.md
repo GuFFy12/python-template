@@ -17,3 +17,11 @@ _Best for bypassing high cross-filesystem overhead by keeping code inside a Linu
 - **Windows (Strictly Required)**: To ensure peak disk performance, **do not** mount the host Windows file system. Instead, exclusively use the VS Code command **`Dev Containers: Clone Repository in Container Volume`**. This keeps the source code entirely within the isolated Linux filesystem, preventing the severe performance degradation caused by Windows-to-Linux file sharing.
 
 - **macOS (OrbStack Strictly Required)**: If you prefer the isolated volume approach on a Mac, you **must** use OrbStack. Using Docker Desktop with the "Clone in Volume" command combined with Docker Compose triggers `mounts denied` error, as Docker Desktop cannot resolve local build contexts inside isolated volumes. OrbStack natively handles this filesystem routing, allowing the clone process to work flawlessly.
+
+# TODO
+
+1. Безопасность билдов (attest, sbom, provenance)
+2. Безопасность через сканеры и cq
+3. Renovate конфиг для batch updates
+4. gitlab ci
+5. tests deep integration: найти actions для summary тестов и прочих вещей в test.yml
