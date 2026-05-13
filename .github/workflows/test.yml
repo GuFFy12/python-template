@@ -35,31 +35,23 @@ jobs:
       - name: Run pre-commit
         if: success() || failure()
         run: |
-          uv run pre-commit run --all-files
-          git diff --exit-code
+          echo "### pre-commit results" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`text" >> $GITHUB_STEP_SUMMARY
 
-      - name: Run detect-secrets
-        if: success() || failure()
-        run: git ls-files | xargs uv run detect-secrets-hook --baseline .secrets.baseline
+          set +e
+          uv run lefthook run pre-commit --all-files 2>&1 | tee -a $GITHUB_STEP_SUMMARY
+          EXIT_CODE=${PIPESTATUS[0]}
+          set -e
 
-      - name: Run Ruff format & lint
-        if: success() || failure()
-        run: |
-          uv run ruff check --fix --exit-zero .
-          uv run ruff check --fix --extend-ignore=PLR2004 .
-          uv run ruff format .
-          git diff --exit-code
-
-      - name: Run dprint
-        if: success() || failure()
-        run: |
-          git ls-files | grep -v '{{_copier_conf.answers_file}}.jinja' | xargs uv run dprint fmt
-          git diff --exit-code
-
-      - name: Run mypy
-        if: success() || failure()
-        run: uv run mypy .
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          exit $EXIT_CODE
 
       - name: Run pytest
         if: success() || failure()
-        run: uv run pytest
+        run: uv run pytest --junitxml=test-results.xml
+
+      - name: Pytest Test Summary
+        uses: test-summary/action@v2
+        if: always()
+        with:
+          paths: "test-results.xml"
