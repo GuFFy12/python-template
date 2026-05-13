@@ -29,6 +29,14 @@ jobs:
           restore-keys: |
             pre-commit-${{ runner.os }}-
 
+      - name: Cache dprint plugins
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+        with:
+          path: ~/.cache/dprint
+          key: dprint-${{ runner.os }}-${{ hashFiles('dprint.json') }}
+          restore-keys: |
+            dprint-${{ runner.os }}-
+
       - name: Install python dependencies
         run: uv sync --frozen --no-install-project
 
@@ -48,10 +56,9 @@ jobs:
 
       - name: Run pytest
         if: success() || failure()
-        run: uv run pytest --junitxml=test-results.xml
+        run: uv run --with pytest-github-actions-annotate-failures pytest --junitxml=results.xml
 
       - name: Pytest Test Summary
         uses: test-summary/action@v2
-        if: always()
         with:
-          paths: "test-results.xml"
+          paths: results.xml

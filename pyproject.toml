@@ -71,6 +71,11 @@ max-line-length = 160
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 
+[tool.coverage.run]
+omit = [
+  "tests/*",
+]
+
 [tool.pyright]
 typeCheckingMode = "strict"
 
