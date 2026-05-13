@@ -59,6 +59,6 @@ jobs:
         run: uv run --with pytest-github-actions-annotate-failures pytest --junitxml=results.xml
 
       - name: Pytest Test Summary
-        uses: test-summary/action@v2
+        uses: test-summary/action@37b508cfee6d4d080eedd00b5bb240a6a784a6a5 # v2
         with:
           paths: results.xml
