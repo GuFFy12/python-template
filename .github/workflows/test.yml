@@ -38,7 +38,7 @@ jobs:
             dprint-${{ runner.os }}-
 
       - name: Install python dependencies
-        run: uv sync --frozen --no-install-project
+        run: uv sync --frozen --group github-workflows --no-install-project
 
       - name: Run pre-commit
         if: success() || failure()
@@ -56,7 +56,7 @@ jobs:
 
       - name: Run pytest
         if: success() || failure()
-        run: uv run --with pytest-github-actions-annotate-failures pytest --junitxml=results.xml
+        run: uv run pytest --junitxml=results.xml
 
       - name: Pytest Test Summary
         uses: test-summary/action@37b508cfee6d4d080eedd00b5bb240a6a784a6a5 # v2

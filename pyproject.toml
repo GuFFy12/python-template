@@ -27,6 +27,9 @@ dev = [
   "pytest-cov>=7.1.0",
   "ruff>=0.15.2",
 ]
+github-workflows = [
+  "pytest-github-actions-annotate-failures>=0.4.0",
+]
 
 [build-system]
 requires = ["hatchling", "hatch-vcs"]
