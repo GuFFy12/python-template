@@ -73,7 +73,6 @@ jobs:
       id-token: write
       attestations: write
       artifact-metadata: write
-      contents: write
     needs: build
     steps:
       - name: Log in to GitHub Container Registry
