@@ -1,5 +1,6 @@
 {
   "extends": ["config:best-practices"],
+  "semanticCommits": "enabled",
   "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
     "enabled": true
