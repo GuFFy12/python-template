@@ -1,4 +1,4 @@
-FROM python:3.13.12-slim-bookworm@sha256:f1927c75e81efd1e091dbd64b6c0ecaa5630b38635a3d1c04034ac636e1f94c8 AS builder
+FROM python:3.13.12-slim-bookworm@sha256:a58daefb915e1e03ad48f3ca4df8832065412c5c35cacb9d39f4229184de12b6 AS builder
 COPY --from=astral/uv:0.11.14@sha256:1025398289b62de8269e70c45b91ffa37c373f38118d7da036fb8bb8efc85d97 /uv /uvx /usr/local/bin
 WORKDIR /app
 ENV UV_COMPILE_BYTECODE=1
@@ -12,7 +12,7 @@ ARG VERSION=0.1.0
 RUN --mount=type=cache,target=/root/.cache/uv \
     SETUPTOOLS_SCM_PRETEND_VERSION=${VERSION} uv sync --frozen --no-dev --no-editable
 
-FROM python:3.13.12-slim-bookworm@sha256:f1927c75e81efd1e091dbd64b6c0ecaa5630b38635a3d1c04034ac636e1f94c8
+FROM python:3.13.12-slim-bookworm@sha256:a58daefb915e1e03ad48f3ca4df8832065412c5c35cacb9d39f4229184de12b6
 RUN addgroup --system appuser && adduser --system --group appuser
 WORKDIR /app
 ENV PYTHONUNBUFFERED=1
