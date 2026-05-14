@@ -31,14 +31,11 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Downcase repository name
-        run: echo "REPO=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
-
       - name: Extract Docker metadata
         id: meta
         uses: docker/metadata-action@030e881283bb7a6894de51c315a6bfe6a94e05cf # v6
         with:
-          images: ghcr.io/${{ env.REPO }}
+          images: ghcr.io/${{ github.repository }}
           flavor: |
             latest=false
           tags: |
@@ -86,18 +83,9 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Downcase repository name
-        run: echo "REPOSITORY=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
-
-      - name: Scan image and upload to Dependency Graph
-        uses: anchore/sbom-action@v0
-        with:
-          image: ghcr.io/${{ env.REPOSITORY }}@${{ needs.build.outputs.image-digest }}
-          dependency-snapshot: true
-
       - name: Attest
         uses: actions/attest@v4
         with:
-          subject-name: ghcr.io/${{ env.REPOSITORY }}
+          subject-name: ghcr.io/${{ github.repository }}
           subject-digest: ${{ needs.build.outputs.image-digest }}
           push-to-registry: true
