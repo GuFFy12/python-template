@@ -28,7 +28,7 @@ pre-commit:
 
           - name: dprint
             exclude: \{\{_copier_conf\.answers_file\}\}\.jinja
-            run: uv run dprint fmt {staged_files}
+            run: uv run dprint fmt --allow-no-files {staged_files}
 
     - name: analyzers
       group:
