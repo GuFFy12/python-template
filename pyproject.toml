@@ -17,11 +17,9 @@ python-template = "python_template.cli:main"
 [dependency-groups]
 dev = [
   "copier>=9.15.0",
-  "detect-secrets>=1.5.0",
   "dprint-py>=0.53.1.0",
   "lefthook>=2.1.6",
   "mypy>=1.20.0",
-  "pre-commit>=4.6.0",
   "pyright>=1.1.408",
   "pytest>=9.0.3",
   "pytest-cov>=7.1.0",

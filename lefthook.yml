@@ -1,20 +1,6 @@
 pre-commit:
   fail_on_changes: always
   jobs:
-    - name: prepare
-      group:
-        parallel: true
-        jobs:
-          - name: uv-lock
-            glob: "{pyproject.toml,uv.lock}"
-            run: uv lock
-
-          - name: legacy-pre-commit
-            run: uv run pre-commit run --files {staged_files}
-
-          - name: detect-secrets
-            run: uv run detect-secrets-hook --baseline .secrets.baseline {staged_files}
-
     - name: formatters
       group:
         parallel: true

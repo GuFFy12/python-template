@@ -26,13 +26,6 @@
       "problemMatcher": []
     },
     {
-      "label": "Secrets: Update & Audit",
-      "type": "shell",
-      "command": "uv run detect-secrets scan --baseline .secrets.baseline && uv run detect-secrets audit .secrets.baseline",
-      "presentation": { "focus": true },
-      "problemMatcher": []
-    },
-    {
       "label": "Update from template",
       "type": "shell",
       "command": "uv run copier update",
