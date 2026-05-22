@@ -48,7 +48,7 @@ jobs:
 
       - name: Run pytest
         if: success() || failure()
-        run: uv run pytest --junitxml=results.xml  || [[ $? -eq 5 ]]
+        run: uv run pytest --junitxml=results.xml || [[ $? -eq 5 ]]
 
       - name: Pytest Test Summary
         uses: test-summary/action@37b508cfee6d4d080eedd00b5bb240a6a784a6a5 # v2
