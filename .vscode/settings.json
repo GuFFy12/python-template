@@ -9,8 +9,11 @@
       "source.fixAll": "explicit"
     }
   },
+  "python.testing.pytestEnabled": true,
   "python.terminal.activateEnvironment": false,
   "python.analysis.autoImportCompletions": true,
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.typeCheckingMode": "strict",
   "git.autofetch": true,
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
@@ -18,7 +21,5 @@
   "editor.unicodeHighlight.allowedLocales": {
     "ru": true
   },
-  "python.testing.pytestEnabled": true,
-  "python.analysis.diagnosticMode": "workspace",
   "dprint.path": ".venv/bin/dprint"
 }
