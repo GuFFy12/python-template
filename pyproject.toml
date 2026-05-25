@@ -44,7 +44,7 @@ local_scheme = "no-local-version"
 
 [tool.ruff]
 target-version = "py313"
-line-length = 160
+line-length = 120
 
 [tool.ruff.lint]
 select = [
@@ -61,7 +61,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.pycodestyle]
-max-line-length = 160
+max-line-length = 120
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = [
