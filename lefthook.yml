@@ -7,10 +7,9 @@ pre-commit:
         jobs:
           - name: ruff
             glob: "*.py"
-            run: >
-              uv run ruff check --fix --exit-zero {staged_files} &&
-              uv run ruff format {staged_files} &&
-              uv run ruff check --fix --extend-ignore=PLR2004 {staged_files}
+            run: |
+              uv run ruff check --fix {staged_files}
+              uv run ruff format {staged_files}
 
           - name: dprint
             exclude: \{\{_copier_conf\.answers_file\}\}\.jinja
