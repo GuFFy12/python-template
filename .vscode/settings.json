@@ -17,7 +17,9 @@
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
   "cSpell.language": "en,ru",
-  "cSpell.dictionaries": ["python"],
+  "cSpell.dictionaries": [
+    "python"
+  ],
   "editor.unicodeHighlight.allowedLocales": {
     "ru": true
   },
@@ -25,7 +27,7 @@
     "commands": [
       {
         "match": ".*",
-        "cmd": "uv run dprint fmt ${file}",
+        "cmd": "uv run dprint fmt --allow-no-files ${file}",
         "autoShowOutputPanel": "error"
       }
     ]
