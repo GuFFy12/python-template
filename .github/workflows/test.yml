@@ -8,6 +8,7 @@ on:
     branches:
       - main
 
+# Тут проверка pre commit'ом всех файлов и pytest. Можете дописать что нибудь свое.
 jobs:
   test:
     name: Run Tests

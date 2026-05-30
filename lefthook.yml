@@ -15,6 +15,7 @@ pre-commit:
             exclude: \{\{_copier_conf\.answers_file\}\}\.jinja
             run: uv run dprint fmt --allow-no-files {staged_files}
 
+    # Если у вас быстрая разработка, то можно перенести и в ci, что бы уже потом догонять по типам.
     - name: analyzers
       group:
         parallel: true

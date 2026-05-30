@@ -36,6 +36,7 @@ jobs:
         uses: docker/metadata-action@030e881283bb7a6894de51c315a6bfe6a94e05cf # v6
         with:
           images: ghcr.io/${{ github.repository }}
+          # Я считаю latest анти паттерном.
           flavor: |
             latest=false
           tags: |
@@ -56,6 +57,7 @@ jobs:
         id: push
         uses: docker/build-push-action@bcafcacb16a39f128d818304e6c9c0c18556b85f # v7
         with:
+          # Можно оставить только amd64 (тогда уберите Set up QEMU).
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
@@ -65,6 +67,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+  # Ставим подпись что именно github action создал образ.
   attest:
     name: Attest Docker Image
     runs-on: ubuntu-24.04

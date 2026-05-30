@@ -5,3 +5,5 @@ services:
     env_file: .env
     volumes:
       - ..:/workspace:cached
+
+# ! Точно так же как для обычного docker compose. НО! Для других контейнеров ОБЯЗАТЕЛЬНО пропишите `network_mode: service:workspace`.

@@ -8,12 +8,14 @@
       "problemMatcher": []
     },
     {
+      // Если обновили какие либо базовые настройки или сделали git pull.
       "label": "Run post-create script",
       "type": "shell",
       "command": ".devcontainer/post-create.sh",
       "problemMatcher": []
     },
     {
+      // Изменили настройки линтера или форматера? Обязательно запустите.
       "label": "Run pre-commit for all files",
       "type": "shell",
       "command": "uv run lefthook run pre-commit --all-files",

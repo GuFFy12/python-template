@@ -1,4 +1,5 @@
 {
+  // ! Поменяйте имя проекта.
   "name": "python-template",
   "dockerComposeFile": ["compose.yaml"],
   "service": "workspace",
@@ -12,6 +13,7 @@
   "postCreateCommand": ".devcontainer/post-create.sh",
   "customizations": {
     "vscode": {
+      // ! Расширения пишем только сюда.
       "extensions": [
         "ms-python.python",
         "charliermarsh.ruff",

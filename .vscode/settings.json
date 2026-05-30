@@ -12,6 +12,7 @@
   "python.testing.pytestEnabled": true,
   "python.terminal.activateEnvironment": false,
   "python.analysis.autoImportCompletions": true,
+  // "standard" если пишете код без типов.
   "python.analysis.typeCheckingMode": "strict",
   "git.autofetch": true,
   "git.enableSmartCommit": true,

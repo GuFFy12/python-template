@@ -1,4 +1,5 @@
 [project]
+# ! Поменяйте имя проекта.
 name = "python-template"
 dynamic = ["version"]
 description = "Python Template"
@@ -32,9 +33,11 @@ github-workflows = [
 requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
+# Версионирование ведется относительно git tags.
 [tool.hatch.version]
 source = "vcs"
 
+# ! Измените путь файла с версией под свой пакет.
 [tool.hatch.build.hooks.vcs]
 version-file = "src/python_template/_version.py"
 
@@ -46,6 +49,7 @@ target-version = "py313"
 line-length = 120
 
 [tool.ruff.lint]
+# ! Все таки я рекомендую выставить необходимые правила вместо всех (иначе придется пополнять ignore или следовать возможно тупым ограничениям).
 select = [
   "ALL",
 ]
@@ -76,6 +80,7 @@ omit = [
   "tests/*",
 ]
 
+# Хотите писать без типов? Уберите strict, уберите комменты, измените настройки .vscode -> settings.json -> "python.analysis.typeCheckingMode": "standard".
 [tool.mypy]
 strict = true
 # check_untyped_defs = true

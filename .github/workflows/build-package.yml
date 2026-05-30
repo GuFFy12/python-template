@@ -28,6 +28,7 @@ jobs:
           name: python-package-distributions
           path: dist/
 
+  # Ставим подпись что именно github action создал образ.
   attest:
     name: Attest Package
     runs-on: ubuntu-24.04
@@ -75,6 +76,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish-pypi:
+    # Убрать это если хотите выкладываться на pypi.
     if: false
     name: Publish to PyPI
     needs: build
