@@ -6,6 +6,9 @@
       "type": "debugpy",
       "request": "launch",
       "module": "python_template.cli",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
       "args": [],
       "justMyCode": true
     }
