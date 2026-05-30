@@ -2,7 +2,7 @@
   "recommendations": [
     "ms-python.python",
     "charliermarsh.ruff",
-    "dprint.dprint",
+    "emeraldwalk.RunOnSave",
     "streetsidesoftware.code-spell-checker",
     "streetsidesoftware.code-spell-checker-russian"
   ]

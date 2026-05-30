@@ -17,7 +17,6 @@
       }
     },
     {
-      // Изменили настройки линтера или форматера? Обязательно запустите.
       "label": "Run pre-commit for all files",
       "type": "shell",
       "command": "uv run lefthook run pre-commit --all-files",

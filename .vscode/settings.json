@@ -1,6 +1,4 @@
 {
-  "editor.defaultFormatter": "dprint.dprint",
-  "editor.formatOnSave": true,
   "files.autoSave": "onFocusChange",
   "files.eol": "\n",
   "[python]": {
@@ -22,5 +20,13 @@
   "editor.unicodeHighlight.allowedLocales": {
     "ru": true
   },
-  "dprint.path": ".venv/bin/dprint"
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": ".*",
+        "cmd": "uv run dprint fmt ${file}",
+        "autoShowOutputPanel": "error"
+      }
+    ]
+  }
 }
