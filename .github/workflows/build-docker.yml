@@ -1,15 +1,11 @@
 name: Build Docker
 
 on:
-  push:
-    # branches:
-    #   - main
-    # pull_request:
-    #   branches:
-    #     - main
-    tags:
-      - "v*.*.*"
-      - "v*.*.*-*"
+  workflow_dispatch:
+  # push:
+  #   tags:
+  #     - "v[0-9]+.[0-9]+.[0-9]+"
+  #     - "v[0-9]+.[0-9]+.[0-9]+-*"
 
 jobs:
   build:
