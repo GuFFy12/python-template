@@ -8,21 +8,19 @@ Keywords: python, uv, vscode, ruff, dprint, docker, python package, github, gith
 
 ## Установка
 
-1. Установите copier:
-
-```bash
-pipx install copier
-```
-
-2. Сделайте копию на основе шаблона:
+1. Установите copier: https://copier.readthedocs.io/en/v5.0.0/
 
 Да вы можете просто сделать git clone и не использовать copier. Он нужен только для синхронизации с шаблоном, что удобно лично для меня.
+
+2. Сделайте копию на основе шаблона:
 
 ```bash
 copier copy https://github.com/GuFFy12/python-template.git <project-name>
 ```
 
-3. Начинайте разработку. Можете менять уже существующие настройки, но я постарался сделать их максимально стандартными и рабочими для всех.
+3. Установите uv: https://docs.astral.sh/uv/getting-started/installation/#pypi
+
+4. Начинайте разработку. Можете менять уже существующие настройки, но я постарался сделать их максимально стандартными и рабочими для всех.
 
 ## Базовый функционал разработки
 
