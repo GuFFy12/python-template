@@ -18,6 +18,7 @@
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
   "cSpell.language": "en,ru",
+  "cSpell.dictionaries": ["python"],
   "editor.unicodeHighlight.allowedLocales": {
     "ru": true
   },

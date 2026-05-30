@@ -1,4 +1,10 @@
 {
-  // ! Расширения пишем в .devcontainer/devcontainer.json!
-  "recommendations": ["ms-vscode-remote.remote-containers"]
+  "recommendations": [
+    "ms-vscode-remote.remote-containers",
+    "ms-python.python",
+    "charliermarsh.ruff",
+    "dprint.dprint",
+    "streetsidesoftware.code-spell-checker",
+    "streetsidesoftware.code-spell-checker-russian"
+  ]
 }

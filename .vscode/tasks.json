@@ -8,11 +8,13 @@
       "problemMatcher": []
     },
     {
-      // Если обновили какие либо базовые настройки или сделали git pull.
-      "label": "Run post-create script",
+      "label": "Install lefthook",
       "type": "shell",
-      "command": ".devcontainer/post-create.sh",
-      "problemMatcher": []
+      "command": "uv run lefthook install",
+      "problemMatcher": [],
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
     },
     {
       // Изменили настройки линтера или форматера? Обязательно запустите.
