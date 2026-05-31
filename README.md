@@ -28,7 +28,7 @@ copier copy https://github.com/GuFFy12/python-template.git <project-name>
 
 Рекомендую просто открыть файлы и почитать комменты.
 
-1. .vscode имеет множество настроек: run tasks в command pallete (ctrl shift p), debug (f5).
+1. .vscode имеет множество настроек: run tasks в command palette (ctrl shift p), debug (f5).
 
 2. lefthook можете расценивать как асинхронный pre-commit. Там много проверок, но можете смело отключать.
 
