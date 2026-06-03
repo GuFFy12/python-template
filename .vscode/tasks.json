@@ -17,7 +17,6 @@
       "label": "Update from template",
       "type": "shell",
       "command": "uv run copier update",
-      "presentation": { "focus": true },
       "problemMatcher": []
     }
   ]
