@@ -8,7 +8,7 @@ services:
       - home:/home/vscode
       - venv:/workspace/.venv
 
-# ! Точно так же как для обычного docker compose. НО! Для других контейнеров ОБЯЗАТЕЛЬНО пропишите `network_mode: service:workspace`.
+  # ! Точно так же как для обычного docker compose. НО! Для других контейнеров ОБЯЗАТЕЛЬНО пропишите `network_mode: service:workspace`.
 
 volumes:
   home:
