@@ -1,6 +1,6 @@
 # Python Template
 
-Keywords: python, uv, vscode, ruff, dprint, docker, python package, github, github ci, lefthook (precommit), mypy, pytest, renovate.
+Keywords: python, devcontainer, uv, vscode, ruff, dprint, docker, python package, github, github ci, lefthook (precommit), mypy, pytest, renovate.
 
 Шаблон предназначен для python проектов в IDE vscode.
 Из него легко можно начать разрабатывать как библиотеки или cli утилиты, так и начинать работу с django или fastapi.
@@ -18,11 +18,25 @@ Keywords: python, uv, vscode, ruff, dprint, docker, python package, github, gith
 copier copy https://github.com/GuFFy12/python-template.git <project-name>
 ```
 
-3. Установите uv: https://docs.astral.sh/uv/getting-started/installation/#pypi
+3. Через поиск замените все упоминания python-template (и возможно python_template) на имя вашего проекта.
 
-4. Через поиск замените все упоминания python-template (и возможно python_template) на имя вашего проекта.
+4. Откройте проект в vscode и в терминале инициализируйте git:
 
-5. Начинайте разработку. Можете менять уже существующие настройки, но я постарался сделать их максимально стандартными и рабочими для всех.
+```bash
+git init
+git checkout -b main
+git add .
+git commit -m "Initial commit"
+# Тут команды для push в remote, допустим в github
+```
+
+5. Установите docker: https://www.docker.com/products/docker-desktop/. Установите рекомендуемое расширение: devcontainers.
+
+6. Откройте проект в devcontainer: command palette (ctrl shift p) -> reopen in devcontainer.
+
+7. Начинайте разработку. Можете менять уже существующие настройки, но я постарался сделать их максимально стандартными и рабочими для всех.
+
+Если вы изменили настройки devcontainer не забудьте запустить rebuild devcontainer.
 
 ## Базовый функционал разработки
 
