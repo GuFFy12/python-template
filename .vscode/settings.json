@@ -1,8 +1,8 @@
 {
-  "editor.formatOnSave": true,
   "files.autoSave": "onFocusChange",
   "files.eol": "\n",
   "[python]": {
+    "editor.formatOnSave": true,
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.codeActionsOnSave": {
       "source.fixAll": "explicit"

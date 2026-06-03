@@ -1,0 +1,15 @@
+services:
+  workspace:
+    build: .
+    command: sleep infinity
+    env_file: .env
+    volumes:
+      - ..:/workspace:cached
+      - home:/home/vscode
+      - venv:/workspace/.venv
+
+# ! Точно так же как для обычного docker compose. НО! Для других контейнеров ОБЯЗАТЕЛЬНО пропишите `network_mode: service:workspace`.
+
+volumes:
+  home:
+  venv:

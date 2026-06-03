@@ -1,3 +1,1 @@
 * text=auto eol=lf
-
-# Пишем большие файлы в lfs пример: git lfs track "*.psd".

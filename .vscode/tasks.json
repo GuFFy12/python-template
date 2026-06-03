@@ -8,15 +8,6 @@
       "problemMatcher": []
     },
     {
-      "label": "Install lefthook",
-      "type": "shell",
-      "command": "uv run lefthook install",
-      "problemMatcher": [],
-      "runOptions": {
-        "runOn": "folderOpen"
-      }
-    },
-    {
       "label": "Run pre-commit for all files",
       "type": "shell",
       "command": "uv run lefthook run pre-commit --all-files",
