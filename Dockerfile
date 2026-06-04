@@ -23,7 +23,8 @@ RUN adduser --system --group app
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PATH="/app/.venv/bin:$PATH"
-COPY --from=builder --chown=app:app /app/.venv /app/.venv
+COPY --from=builder /app/.venv /app/.venv
+RUN chown app:app /app
 USER app
 ENTRYPOINT ["python-template"]
 CMD ["--help"]
