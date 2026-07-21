@@ -1,28 +1,16 @@
 pre-commit:
   fail_on_changes: always
   jobs:
-    - name: formatters
-      group:
-        parallel: true
-        jobs:
-          - name: ruff
-            glob: "*.py"
-            run: |
-              uv run ruff check --fix {staged_files}
-              uv run ruff format {staged_files}
-
-          - name: dprint
-            exclude: \{\{_copier_conf\.answers_file\}\}\.jinja
-            run: uv run dprint fmt --allow-no-files {staged_files}
+    - name: ruff
+      glob: "*.py"
+      run: |
+        uv run ruff check --fix {staged_files}
+        uv run ruff format {staged_files}
 
     # Если у вас быстрая разработка, то можно перенести и в ci, что бы уже потом догонять по типам.
-    - name: analyzers
-      group:
-        parallel: true
-        jobs:
-          - name: mypy
-            glob: "{pyproject.toml,src/**/*.py,tests/**/*.py}"
-            run: uv run mypy .
+    - name: mypy
+      glob: "*.py"
+      run: uv run mypy {staged_files}
 
 post-checkout:
   jobs:

@@ -18,12 +18,6 @@
       "type": "shell",
       "command": "uv run lefthook run pre-commit --all-files",
       "problemMatcher": []
-    },
-    {
-      "label": "Update from template",
-      "type": "shell",
-      "command": "uv run copier update",
-      "problemMatcher": []
     }
   ]
 }

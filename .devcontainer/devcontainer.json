@@ -19,7 +19,6 @@
       "extensions": [
         "ms-python.python",
         "charliermarsh.ruff",
-        "emeraldwalk.RunOnSave",
         "streetsidesoftware.code-spell-checker",
         "streetsidesoftware.code-spell-checker-russian"
       ]

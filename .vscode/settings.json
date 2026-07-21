@@ -22,14 +22,5 @@
   ],
   "editor.unicodeHighlight.allowedLocales": {
     "ru": true
-  },
-  "emeraldwalk.runonsave": {
-    "commands": [
-      {
-        "match": ".*",
-        "cmd": "uv run dprint fmt --allow-no-files ${file}",
-        "autoShowOutputPanel": "error"
-      }
-    ]
   }
 }

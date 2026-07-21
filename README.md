@@ -1,6 +1,6 @@
 # Python Template
 
-Keywords: python, devcontainer, uv, vscode, ruff, dprint, docker, python package, github, github ci, lefthook (precommit), mypy, pytest, renovate.
+Keywords: python, devcontainer, uv, vscode, ruff, docker, python package, github, github ci, lefthook (precommit), mypy, pytest, renovate.
 
 Шаблон предназначен для python проектов в IDE vscode.
 Из него легко можно начать разрабатывать как библиотеки или cli утилиты, так и начинать работу с django или fastapi.
@@ -8,19 +8,11 @@ Keywords: python, devcontainer, uv, vscode, ruff, dprint, docker, python package
 
 ## Установка
 
-1. Установите copier: https://copier.readthedocs.io/en/v5.0.0/
+1. Сделайте git clone репозитория и удалите папку .git.
 
-Да вы можете просто сделать git clone и не использовать copier. Он нужен только для синхронизации с шаблоном, что удобно лично для меня.
+2. Через поиск замените все упоминания python-template (и возможно python_template) на имя вашего проекта.
 
-2. Сделайте копию на основе шаблона:
-
-```bash
-copier copy https://github.com/GuFFy12/python-template.git <project-name>
-```
-
-3. Через поиск замените все упоминания python-template (и возможно python_template) на имя вашего проекта.
-
-4. Откройте проект в vscode и в терминале инициализируйте git:
+3. Откройте проект в vscode и в терминале инициализируйте git повторно для вашего проекта:
 
 ```bash
 git init
@@ -46,13 +38,11 @@ git commit -m "Initial commit"
 
 2. lefthook можете расценивать как асинхронный pre-commit. Там много проверок, но можете смело отключать.
 
-3. ruff должен быть вам знаком так же как и uv (если нет почитайте). dprint же это rust аналог prettier для множества файлов.
+3. ruff должен быть вам знаком так же как и uv (если нет почитайте).
 
 4. pylance для анализа в ide. При ci или precommit будет запускаться mypy для анализа типов.
 
 5. Изменили настройки линтера или форматера? Обязательно запустите: run task -> Run pre-commit for all files.
-
-6. Для dprint есть и другие плагины: поддержка js, ts, html. Обновите его если это необходимо.
 
 ## CI
 
