@@ -29,7 +29,7 @@ jobs:
         if: success() || failure()
         run: |
           echo "### pre-commit results" >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`text" >> $GITHUB_STEP_SUMMARYv
+          echo "\`\`\`text" >> $GITHUB_STEP_SUMMARY
 
           set +e
           uv run lefthook run pre-commit --all-files 2>&1 | tee -a $GITHUB_STEP_SUMMARY
