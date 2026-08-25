@@ -1,6 +1,10 @@
 pre-commit:
   fail_on_changes: always
   jobs:
+    - name: uv-lock
+      glob: "{pyproject.toml,uv.lock}"
+      run: uv lock --check
+
     - name: ruff
       glob: "*.py"
       run: |
